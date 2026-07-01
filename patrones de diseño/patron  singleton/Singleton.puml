@@ -1,0 +1,36 @@
+@startuml
+
+title Patrón de Diseño - Singleton
+
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Singleton {
+
+    - instance : Singleton
+
+    - Singleton()
+
+    {static} + getInstance() : Singleton
+
+}
+
+class Cliente
+
+' RELACIONES
+Cliente --> Singleton : utiliza
+Singleton --> Singleton : única instancia
+
+note bottom of Singleton
+
+getInstance()
+
+if (instance == null) {
+    instance = new Singleton();
+}
+
+return instance;
+
+end note
+
+@enduml
