@@ -1,36 +1,21 @@
 @startuml
-
-title Patrón de Diseño - Singleton
-
-hide empty members
-skinparam classAttributeIconSize 0
+title Patron Singleton - Configuracion de Botica POS
 
 class Singleton {
-
-    - instance : Singleton
-
-    - Singleton()
-
-    {static} + getInstance() : Singleton
-
+  - NOMBRE_SISTEMA: String
+  - MONEDA: String
+  - IGV: double
+  - usuarioActivo: String
+  - Singleton()
+  + getInstance(): Singleton
+  + calcularIgv(subtotal: double): double
+  + calcularTotal(subtotal: double): double
 }
 
-class Cliente
-
-' RELACIONES
-Cliente --> Singleton : utiliza
-Singleton --> Singleton : única instancia
-
-note bottom of Singleton
-
-getInstance()
-
-if (instance == null) {
-    instance = new Singleton();
+class Holder {
+  - INSTANCE: Singleton
 }
 
-return instance;
-
-end note
-
+Singleton ..> Holder
+Holder --> Singleton
 @enduml

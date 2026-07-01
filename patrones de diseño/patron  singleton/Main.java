@@ -1,16 +1,16 @@
-void main() {
+package patrones.singleton;
 
-    Singleton objeto1 = Singleton.getInstance();
-    Singleton objeto2 = Singleton.getInstance();
+public class Main {
+    public static void main(String[] args) {
+        Singleton configuracion = Singleton.getInstance();
+        Singleton mismaConfiguracion = Singleton.getInstance();
 
-    objeto1.mostrarMensaje();
+        configuracion.cambiarUsuarioActivo("Cajero principal");
 
-    println();
-
-    println("¿Es la misma instancia?");
-    println(objeto1 == objeto2);
-
-    println("HashCode objeto1: " + objeto1.hashCode());
-    println("HashCode objeto2: " + objeto2.hashCode());
-
+        System.out.println("Sistema: " + configuracion.getNombreSistema());
+        System.out.println("Moneda: " + configuracion.getMoneda());
+        System.out.println("Usuario activo: " + configuracion.getUsuarioActivo());
+        System.out.println("Misma instancia: " + (configuracion == mismaConfiguracion));
+        System.out.printf("Total venta S/ %.2f%n", configuracion.calcularTotal(100.00));
+    }
 }

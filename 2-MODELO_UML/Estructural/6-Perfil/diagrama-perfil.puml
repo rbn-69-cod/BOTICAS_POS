@@ -1,0 +1,13 @@
+@startuml
+title Botica POS MediZano - Perfil
+class Entity <<stereotype>>
+class Controller <<stereotype>>
+class Service <<stereotype>>
+class Repository <<stereotype>>
+class SecuredEndpoint <<stereotype>>
+class PdfDocument <<stereotype>>
+enum RolUsuario { ADMIN; CAJERO; ALMACEN; INVENTARIO; ANALISTA; GERENTE; SOPORTE }
+enum MetodoPago { EFECTIVO; TARJETA; YAPE; PLIN }
+enum EstadoVenta { BORRADOR; PAGADA; ANULADA }
+enum EstadoLote { DISPONIBLE; BAJO_STOCK; VENCIDO; AGOTADO }
+@enduml

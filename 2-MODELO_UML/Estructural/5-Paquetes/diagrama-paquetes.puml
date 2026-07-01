@@ -1,0 +1,21 @@
+@startuml
+title Botica POS MediZano - Paquetes
+package "com.medicalstore.pos" {
+  package config
+  package controller
+  package dto
+  package entity
+  package exception
+  package repository
+  package security
+  package service
+}
+controller --> dto
+controller --> service
+service --> repository
+service --> entity
+repository --> entity
+security --> service
+config --> security
+exception --> controller
+@enduml
