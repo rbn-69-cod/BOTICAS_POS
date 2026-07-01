@@ -1,0 +1,14 @@
+@startuml
+title Botica POS MediZano - Estado
+[*] --> Creado
+Creado --> EnProceso : iniciar operacion
+EnProceso --> Validado : datos correctos
+Validado --> Registrado : guardar en sistema
+Registrado --> Actualizado : aplicar stock/auditoria
+Actualizado --> Finalizado : confirmar
+EnProceso --> Cancelado : cancelar
+Validado --> Error : validacion fallida
+Error --> EnProceso : corregir
+Cancelado --> [*]
+Finalizado --> [*]
+@enduml

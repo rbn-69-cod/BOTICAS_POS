@@ -1,0 +1,22 @@
+@startuml
+title Botica POS MediZano - Clases
+class Usuario { +id: Long; +username: String; +rol: RolUsuario; +activo: Boolean }
+class Medicamento { +id: Long; +nombre: String; +codigoBarra: String; +precioVenta: BigDecimal; +activo: Boolean }
+class Lote { +id: Long; +codigo: String; +fechaVencimiento: Date; +stockActual: Integer; +stockMinimo: Integer }
+class Venta { +id: Long; +numero: String; +subtotal: BigDecimal; +igv: BigDecimal; +total: BigDecimal; +estado: EstadoVenta }
+class DetalleVenta { +cantidad: Integer; +precioUnitario: BigDecimal; +importe: BigDecimal }
+class Pago { +metodo: MetodoPago; +montoPagado: BigDecimal; +vuelto: BigDecimal }
+class Comprobante { +serie: String; +numero: String; +rutaPdf: String }
+class AuditLog { +accion: String; +fecha: DateTime }
+enum RolUsuario { ADMIN; CAJERO; ALMACEN; INVENTARIO; ANALISTA; GERENTE; SOPORTE }
+enum MetodoPago { EFECTIVO; TARJETA; YAPE; PLIN }
+enum EstadoVenta { BORRADOR; PAGADA; ANULADA }
+Medicamento "1" --> "0..*" Lote
+Venta "1" --> "1..*" DetalleVenta
+DetalleVenta "*" --> "1" Medicamento
+DetalleVenta "*" --> "1" Lote
+Venta "1" --> "1" Pago
+Venta "1" --> "0..1" Comprobante
+Usuario "1" --> "0..*" Venta : registra
+Usuario "1" --> "0..*" AuditLog : genera
+@enduml
