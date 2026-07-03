@@ -1,0 +1,66 @@
+@startuml
+!theme aws-orange
+title CU-01 - Solicitar Devolución
+
+note as N1
+**Caso de uso:** Solicitar Devolución
+**Id:** CU-01
+
+**Breve descripción:**
+El sistema permite registrar una solicitud de devolución de un producto
+adquirido por un cliente. Se verifica la venta original, el comprobante
+de pago y el estado del producto antes de solicitar la autorización de
+la devolución.
+
+**Actores primarios:**
+- Cliente
+
+**Actores secundarios:**
+- Atención al Cliente
+- Administrador
+- Base de Datos PostgreSQL
+
+**Precondiciones:**
+1. El cliente realizó previamente una compra.
+2. La venta se encuentra registrada en el sistema.
+3. El cliente presenta el comprobante de compra.
+4. El producto cumple con la política de devoluciones.
+
+**Flujo principal:**
+1. El cliente solicita la devolución del producto.
+2. Atención al cliente busca la venta original.
+3. El sistema recupera la información de la venta.
+4. Atención al cliente valida el comprobante de compra.
+5. El sistema verifica que el comprobante sea válido.
+6. Atención al cliente inspecciona el estado del producto.
+7. El sistema verifica que el producto cumpla las condiciones de devolución.
+8. El administrador revisa la solicitud.
+9. El administrador autoriza la devolución.
+10. El sistema reintegra el producto al inventario.
+11. El sistema genera la nota de crédito correspondiente.
+12. El sistema confirma que la devolución fue registrada exitosamente.
+
+**Postcondiciones:**
+1. La devolución queda registrada en la base de datos.
+2. El inventario se actualiza automáticamente.
+3. Se genera la nota de crédito.
+4. El estado de la venta queda actualizado como devolución autorizada.
+
+**Flujos alternativos:**
+A1. Venta no encontrada:
+El sistema informa que la venta original no existe.
+
+A2. Comprobante inválido:
+El sistema rechaza la solicitud de devolución.
+
+A3. Producto fuera de las condiciones:
+El sistema indica que el producto no cumple con las políticas de devolución.
+
+A4. Devolución no autorizada:
+El administrador rechaza la solicitud y el sistema registra el motivo.
+
+A5. Error al actualizar inventario:
+El sistema cancela la operación y notifica el error al usuario.
+
+end note
+@enduml

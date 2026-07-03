@@ -1,0 +1,73 @@
+@startuml
+!theme aws-orange
+title CU-05 - Gestión de Usuarios y Seguridad
+
+note as N1
+**Caso de uso:** Gestión de Usuarios y Seguridad
+**Id:** CU-05
+
+**Breve descripción:**
+El sistema permite administrar los usuarios del sistema mediante el
+inicio y cierre de sesión, registro y actualización de usuarios,
+asignación de roles, activación o desactivación de cuentas y la
+consulta de auditorías para garantizar la seguridad y trazabilidad
+de las operaciones realizadas.
+
+**Actores primarios:**
+- Administrador
+
+**Actores secundarios:**
+- Usuario
+- Base de Datos PostgreSQL
+
+**Precondiciones:**
+1. El sistema se encuentra disponible.
+2. El administrador posee permisos para gestionar usuarios.
+3. Los roles del sistema están previamente configurados.
+4. La base de datos está operativa.
+
+**Flujo principal:**
+1. El usuario accede al sistema e ingresa sus credenciales.
+2. El sistema valida el nombre de usuario y la contraseña.
+3. El sistema permite el inicio de sesión.
+4. El administrador accede al módulo de usuarios y seguridad.
+5. El administrador registra un nuevo usuario.
+6. El sistema solicita los datos del usuario.
+7. El administrador ingresa la información requerida.
+8. El sistema valida que los datos sean correctos.
+9. El administrador asigna un rol al usuario.
+10. El sistema registra el usuario y su rol correspondiente.
+11. El administrador actualiza la información de un usuario cuando sea necesario.
+12. El administrador puede activar o desactivar una cuenta de usuario.
+13. El sistema registra todas las acciones en la auditoría.
+14. El administrador consulta el historial de auditoría.
+15. El usuario puede cerrar sesión.
+16. El sistema finaliza la sesión de forma segura.
+
+**Postcondiciones:**
+1. Los usuarios quedan registrados o actualizados correctamente.
+2. Los roles quedan asignados según los permisos establecidos.
+3. La auditoría registra todas las operaciones realizadas.
+4. La sesión del usuario queda iniciada o cerrada correctamente.
+
+**Flujos alternativos:**
+A1. Credenciales incorrectas:
+El sistema rechaza el inicio de sesión y solicita volver a intentarlo.
+
+A2. Usuario ya registrado:
+El sistema informa que el usuario ya existe.
+
+A3. Datos incompletos:
+El sistema solicita completar la información obligatoria.
+
+A4. Usuario deshabilitado:
+El sistema impide el acceso al sistema y muestra un mensaje informativo.
+
+A5. Error al registrar o actualizar usuario:
+El sistema cancela la operación y notifica el error al administrador.
+
+A6. Error al consultar la auditoría:
+El sistema informa que no fue posible recuperar los registros.
+
+end note
+@enduml

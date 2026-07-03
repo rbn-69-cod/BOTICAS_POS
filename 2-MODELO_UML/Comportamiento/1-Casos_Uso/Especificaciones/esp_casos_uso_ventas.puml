@@ -1,0 +1,71 @@
+```plantuml
+@startuml
+!theme aws-orange
+title CU-06 - Gestión de Ventas
+
+note as N1
+**Caso de uso:** Gestión de Ventas
+**Id:** CU-06
+
+**Breve descripción:**
+El sistema permite al cajero realizar el proceso completo de venta de
+medicamentos, desde la búsqueda de productos y el registro de la venta
+hasta el procesamiento del pago, cálculo del vuelto y emisión del
+comprobante de pago para el cliente.
+
+**Actores primarios:**
+- Cajero
+
+**Actores secundarios:**
+- Cliente
+- Base de Datos PostgreSQL
+
+**Precondiciones:**
+1. El cajero ha iniciado sesión en el sistema.
+2. Existen medicamentos registrados con stock disponible.
+3. La caja se encuentra abierta para realizar ventas.
+4. El sistema está conectado a la base de datos.
+
+**Flujo principal:**
+1. El cajero accede al módulo de ventas.
+2. El sistema muestra la interfaz de registro de ventas.
+3. El cajero busca el medicamento por nombre o código de barras.
+4. El sistema muestra los productos encontrados.
+5. El cajero agrega el medicamento a la venta.
+6. El cajero modifica la cantidad de productos cuando sea necesario.
+7. El sistema calcula automáticamente el subtotal, el IGV y el total de la venta.
+8. El cliente confirma la compra.
+9. El cajero registra el pago realizado por el cliente.
+10. El sistema valida el monto recibido.
+11. El sistema calcula el vuelto correspondiente.
+12. El sistema registra la venta en la base de datos.
+13. El sistema descuenta automáticamente el stock del inventario.
+14. El sistema genera el comprobante de pago.
+15. El cliente recibe el comprobante de la compra.
+16. El sistema confirma que la venta fue registrada exitosamente.
+
+**Postcondiciones:**
+1. La venta queda registrada en la base de datos.
+2. El inventario se actualiza automáticamente.
+3. El comprobante de pago es generado correctamente.
+4. El historial de ventas queda actualizado.
+
+**Flujos alternativos:**
+A1. Medicamento no encontrado:
+El sistema informa que el producto solicitado no existe.
+
+A2. Stock insuficiente:
+El sistema impide agregar una cantidad superior al stock disponible.
+
+A3. Pago insuficiente:
+El sistema solicita ingresar un monto igual o mayor al total de la venta.
+
+A4. Error al registrar la venta:
+El sistema cancela la operación y muestra un mensaje de error.
+
+A5. Error al generar el comprobante:
+El sistema registra la venta, pero informa que no fue posible emitir el comprobante.
+
+end note
+@enduml
+```

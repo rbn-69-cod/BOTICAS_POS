@@ -1,0 +1,67 @@
+@startuml
+!theme aws-orange
+title CU-02 - Gestión de Inventario
+
+note as N1
+**Caso de uso:** Gestión de Inventario
+**Id:** CU-02
+
+**Breve descripción:**
+El sistema permite al encargado de almacén consultar existencias,
+registrar entradas y salidas de stock, controlar los lotes de los
+medicamentos, consultar productos próximos a vencer y visualizar los
+movimientos de inventario. Además, el gerente puede consultar las
+alertas de stock bajo para tomar decisiones oportunas.
+
+**Actores primarios:**
+- Encargado de Almacén
+
+**Actores secundarios:**
+- Gerente / Analista
+- Base de Datos PostgreSQL
+
+**Precondiciones:**
+1. El usuario ha iniciado sesión.
+2. El usuario posee permisos para acceder al módulo de inventario.
+3. Existen productos registrados en el sistema.
+4. El inventario se encuentra disponible.
+
+**Flujo principal:**
+1. El encargado de almacén accede al módulo de inventario.
+2. El sistema muestra las existencias actuales de los productos.
+3. El encargado consulta el stock disponible.
+4. El encargado registra una entrada o salida de stock.
+5. El sistema valida la información ingresada.
+6. El sistema actualiza automáticamente las existencias.
+7. El encargado controla los lotes registrados.
+8. El sistema verifica las fechas de vencimiento de cada lote.
+9. El sistema muestra los productos próximos a vencer.
+10. El gerente consulta las alertas de stock bajo.
+11. El sistema identifica los productos con stock mínimo.
+12. El encargado o gerente consulta el historial de movimientos.
+13. El sistema muestra el registro completo de entradas y salidas.
+
+**Postcondiciones:**
+1. El inventario queda actualizado.
+2. Los movimientos de inventario quedan registrados.
+3. Las alertas de stock bajo permanecen actualizadas.
+4. Los lotes y fechas de vencimiento quedan registrados correctamente.
+
+**Flujos alternativos:**
+A1. Producto inexistente:
+El sistema informa que el producto no se encuentra registrado.
+
+A2. Stock insuficiente:
+El sistema impide registrar una salida mayor al stock disponible.
+
+A3. Datos inválidos:
+El sistema solicita corregir la información ingresada.
+
+A4. Error al actualizar el inventario:
+El sistema cancela la operación y muestra un mensaje de error.
+
+A5. No existen productos próximos a vencer:
+El sistema informa que no se encontraron medicamentos cercanos a su fecha de vencimiento.
+
+end note
+@enduml

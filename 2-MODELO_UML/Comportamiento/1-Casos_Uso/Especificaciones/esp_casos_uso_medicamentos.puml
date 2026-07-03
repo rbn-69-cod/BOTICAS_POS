@@ -1,0 +1,70 @@
+@startuml
+!theme aws-orange
+title CU-03 - Gestión de Medicamentos
+
+note as N1
+**Caso de uso:** Gestión de Medicamentos
+**Id:** CU-03
+
+**Breve descripción:**
+El sistema permite al encargado de almacén registrar, consultar,
+actualizar y administrar la información de los medicamentos. Además,
+permite asignar precios, asociar lotes y realizar búsquedas mediante
+el código de barras. El administrador puede desactivar medicamentos
+que ya no estarán disponibles para la venta.
+
+**Actores primarios:**
+- Encargado de Almacén
+
+**Actores secundarios:**
+- Administrador
+- Base de Datos PostgreSQL
+
+**Precondiciones:**
+1. El usuario ha iniciado sesión en el sistema.
+2. El usuario posee permisos para acceder al módulo de medicamentos.
+3. Existen categorías y laboratorios registrados.
+4. La base de datos se encuentra disponible.
+
+**Flujo principal:**
+1. El encargado de almacén accede al módulo de medicamentos.
+2. El sistema muestra las opciones de gestión.
+3. El encargado registra un nuevo medicamento.
+4. El sistema solicita la información del medicamento.
+5. El encargado ingresa los datos requeridos.
+6. El sistema valida la información registrada.
+7. El encargado asigna el precio del medicamento.
+8. El sistema registra el precio correspondiente.
+9. El encargado asocia el lote del medicamento.
+10. El sistema registra el lote y su fecha de vencimiento.
+11. El sistema almacena el medicamento correctamente.
+12. El encargado consulta o actualiza la información cuando sea necesario.
+13. El encargado puede buscar medicamentos mediante el código de barras.
+14. El administrador desactiva medicamentos que ya no estarán disponibles.
+15. El sistema confirma la operación realizada.
+
+**Postcondiciones:**
+1. El medicamento queda registrado o actualizado.
+2. El precio queda asociado correctamente.
+3. El lote queda registrado en el sistema.
+4. El medicamento puede consultarse mediante su código de barras.
+5. Si fue desactivado, deja de estar disponible para nuevas ventas.
+
+**Flujos alternativos:**
+A1. Código de producto duplicado:
+El sistema informa que el medicamento ya se encuentra registrado.
+
+A2. Datos incompletos:
+El sistema solicita completar la información obligatoria.
+
+A3. Código de barras inexistente:
+El sistema informa que no encontró coincidencias.
+
+A4. Error al guardar la información:
+El sistema cancela la operación y muestra un mensaje de error.
+
+A5. Medicamento ya desactivado:
+El sistema informa que el medicamento ya se encuentra inactivo y no realiza cambios.
+
+end note
+@enduml
