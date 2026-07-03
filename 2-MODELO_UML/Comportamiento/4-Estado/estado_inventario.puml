@@ -1,0 +1,16 @@
+@startuml
+title MediZano - Estados de un lote
+[*] --> Registrado
+Registrado --> Disponible : recibir stock
+Disponible --> StockBajo : alcanzar minimo
+StockBajo --> Disponible : reponer
+Disponible --> Agotado : consumir existencias
+StockBajo --> Agotado : consumir existencias
+Disponible --> ProximoVencer : entrar en alerta
+StockBajo --> ProximoVencer : entrar en alerta
+ProximoVencer --> Vencido : llegar fecha
+Agotado --> Cerrado : cerrar lote
+Vencido --> Bloqueado : impedir venta
+Cerrado --> [*]
+Bloqueado --> [*]
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+title MediZano - Tiempo de medicamentos
+robust "Formulario" as Form
+robust "Validacion" as Val
+robust "Medicamento" as Med
+robust "Lote inicial" as Lote
+@0
+Form is Editando
+Val is Pendiente
+Med is Nuevo
+Lote is Pendiente
+@5
+Form is Enviado
+Val is VerificandoCodigo
+@10
+Val is Aprobada
+Med is Guardando
+Lote is Asociando
+@15
+Med is Activo
+Lote is Disponible
+@enduml

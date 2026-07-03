@@ -1,3 +1,5 @@
-# Diagrama de perfil
+# Diagrama de Perfil
 
-Estereotipos y enumeraciones: Entity, Controller, Service, Repository, SecuredEndpoint, PdfDocument, RolUsuario, MetodoPago, EstadoVenta y EstadoLote.
+## Descripción
+
+Define estereotipos del dominio farmacéutico y del sistema POS MediZano.

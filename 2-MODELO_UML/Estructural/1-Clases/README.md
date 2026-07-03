@@ -1,3 +1,5 @@
-# Diagrama de clases
+# Diagrama de Clases
 
-Modelo de dominio: Usuario, Medicamento, Lote, Venta, DetalleVenta, Pago, Comprobante y AuditLog.
+## Descripción
+
+Representa el modelo de dominio principal de MediZano. Incluye entidades relacionadas con usuarios, medicamentos, lotes, ventas, pagos, devoluciones y auditoría.

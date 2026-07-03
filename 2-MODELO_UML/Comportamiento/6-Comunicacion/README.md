@@ -1,13 +1,17 @@
 # Diagramas de comunicacion
 
-En este diagrama explico como se comunican los objetos y servicios principales
-del POS. Lo uso como una vista resumida de colaboracion: el cajero no habla
-directamente con la base de datos, sino con el frontend, y este llega al backend
-por medio de la API.
+Los siete diagramas explican la colaboracion general y las comunicaciones
+especificas de cada modulo, con mensajes numerados.
 
 | Archivo | Comunicacion principal |
 |---------|------------------------|
-| `comunicacion-general.puml` | Comunicacion general entre actores, frontend, API, servicios y base de datos. |
+| `comunicacion_general.puml` | Comunicacion general entre actores, frontend, API, servicios y base de datos. |
+| `comunicacion_ventas.puml` | Venta, stock, pago y comprobante. |
+| `comunicacion_medicamentos.puml` | Registro y validacion de medicamentos. |
+| `comunicacion_inventario.puml` | Movimientos y alertas. |
+| `comunicacion_devoluciones.puml` | Solicitud, autorizacion y reintegro. |
+| `comunicacion_reportes.puml` | Consulta y exportacion. |
+| `comunicacion_usuarios_seguridad.puml` | Login, JWT y auditoria. |
 
 ## Flujo de comunicacion
 

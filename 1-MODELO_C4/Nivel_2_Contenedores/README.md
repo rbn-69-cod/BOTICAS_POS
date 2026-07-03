@@ -1,8 +1,16 @@
-# Nivel 2 - Contenedores
+# Nivel 2 - Diagrama de Contenedores
 
-| Contenedor | Tecnologia | Responsabilidad |
-|------------|------------|-----------------|
-| Aplicacion Web | Angular 17 | Interfaz de ventas, inventario, medicamentos, reportes y usuarios. |
-| API REST | Spring Boot 3.2 / Java 17 | Reglas de negocio, seguridad JWT y endpoints. |
-| Base de datos | PostgreSQL | Persistencia de ventas, lotes, productos, usuarios y auditoria. |
-| Servicio PDF | iText PDF | Generacion de comprobantes. |
+## Descripción
+
+Este nivel representa los contenedores principales que componen MediZano. Se identifican la aplicación frontend, la API REST, la base de datos, el módulo de seguridad, el generador de comprobantes y la documentación de API.
+
+## Contenedores
+
+| Contenedor | Tecnología | Responsabilidad |
+|---|---|---|
+| Frontend Web | Angular, TypeScript, Bootstrap | Interfaz usada por cajeros, administradores y personal de botica. |
+| Backend API REST | Java, Spring Boot | Procesa la lógica de negocio y expone endpoints. |
+| Seguridad | Spring Security, JWT | Autentica usuarios y valida roles. |
+| Base de datos | PostgreSQL | Almacena medicamentos, ventas, lotes, usuarios y auditoría. |
+| Generador PDF | iText | Genera comprobantes de venta. |
+| Swagger / OpenAPI | Springdoc | Documenta y permite probar la API. |

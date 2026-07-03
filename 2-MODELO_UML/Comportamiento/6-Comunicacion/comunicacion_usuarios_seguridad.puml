@@ -1,0 +1,16 @@
+@startuml
+title MediZano - Comunicacion de usuarios y seguridad
+object Usuario
+object Frontend
+object "Servicio Auth" as Auth
+object "Servicio Usuarios" as Usuarios
+object PostgreSQL as DB
+object Auditoria
+Usuario -> Frontend : 1. envia credenciales
+Frontend -> Auth : 2. solicita acceso
+Auth -> DB : 3. consulta usuario y rol
+DB --> Auth : 4. retorna credenciales
+Auth -> Auditoria : 5. registra intento
+Auth --> Frontend : 6. entrega JWT
+Frontend --> Usuario : 7. habilita sesion
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+title MediZano - Comunicacion de inventario
+object "Encargado" as Almacen
+object Frontend
+object "Servicio Inventario" as Inventario
+object "Servicio Alertas" as Alertas
+object PostgreSQL as DB
+Almacen -> Frontend : 1. registra movimiento
+Frontend -> Inventario : 2. envia lote y cantidad
+Inventario -> DB : 3. consulta existencias
+Inventario -> DB : 4. actualiza stock
+Inventario -> Alertas : 5. solicita evaluacion
+Alertas -> DB : 6. registra alerta
+Inventario --> Frontend : 7. confirma movimiento
+@enduml

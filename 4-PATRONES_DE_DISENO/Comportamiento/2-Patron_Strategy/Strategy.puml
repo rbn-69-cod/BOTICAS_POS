@@ -1,0 +1,26 @@
+@startuml
+!theme plain
+title Patrón Strategy - Medios de pago
+skinparam shadowing false
+skinparam class { BackgroundColor #F8FBFF; BorderColor #2463A9; ArrowColor #2463A9 }
+
+interface EstrategiaPago { + pagar(total: BigDecimal): ResultadoPago }
+class ProcesadorPago <<Contexto>> {
+  - estrategia: EstrategiaPago
+  + seleccionar(estrategia): void
+  + procesar(total): ResultadoPago
+}
+class PagoEfectivo { + pagar(total): ResultadoPago }
+class PagoTarjeta { + pagar(total): ResultadoPago }
+class PagoBilleteraDigital { + pagar(total): ResultadoPago }
+class ResultadoPago {
+  + aprobado: boolean
+  + codigoOperacion: String
+  + vuelto: BigDecimal
+}
+ProcesadorPago o--> EstrategiaPago : utiliza
+EstrategiaPago <|.. PagoEfectivo
+EstrategiaPago <|.. PagoTarjeta
+EstrategiaPago <|.. PagoBilleteraDigital
+EstrategiaPago ..> ResultadoPago : produce
+@enduml

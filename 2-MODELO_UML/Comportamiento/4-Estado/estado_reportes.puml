@@ -1,0 +1,14 @@
+@startuml
+title MediZano - Estados de un reporte
+[*] --> Configurando
+Configurando --> Consultando : aplicar filtros
+Consultando --> ConDatos : resultados encontrados
+Consultando --> SinDatos : consulta vacia
+ConDatos --> Visualizado : mostrar indicadores
+Visualizado --> Exportando : solicitar archivo
+Exportando --> Exportado : generacion correcta
+Exportando --> Error : fallo de generacion
+Error --> Exportando : reintentar
+SinDatos --> [*]
+Exportado --> [*]
+@enduml

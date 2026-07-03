@@ -1,0 +1,26 @@
+@startuml
+title MediZano - Secuencia de devoluciones
+actor "Atencion al cliente" as Soporte
+actor Administrador
+participant Frontend
+participant "Servicio Devoluciones" as Devoluciones
+participant "Servicio Inventario" as Inventario
+database PostgreSQL as DB
+Soporte -> Frontend : ingresar comprobante y motivo
+Frontend -> Devoluciones : solicitar(datos)
+Devoluciones -> DB : buscar venta original
+DB --> Devoluciones : venta y productos
+Devoluciones --> Frontend : condiciones por validar
+Soporte -> Frontend : confirmar estado del producto
+Frontend -> Devoluciones : enviar validacion
+Devoluciones --> Administrador : solicitar autorizacion
+Administrador -> Devoluciones : aprobar o rechazar
+alt aprobada
+  Devoluciones -> Inventario : reintegrar producto
+  Devoluciones -> DB : guardar devolucion y nota de credito
+  Devoluciones --> Frontend : devolucion completada
+else rechazada
+  Devoluciones -> DB : registrar rechazo
+  Devoluciones --> Frontend : informar motivo
+end
+@enduml

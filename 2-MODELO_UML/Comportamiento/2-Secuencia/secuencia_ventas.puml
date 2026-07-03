@@ -1,0 +1,28 @@
+@startuml
+title MediZano - Secuencia de ventas
+actor Cajero
+participant Frontend
+participant "Servicio Ventas" as Ventas
+participant "Servicio Inventario" as Inventario
+participant "Servicio Pagos" as Pagos
+database PostgreSQL as DB
+participant "Generador PDF" as PDF
+Cajero -> Frontend : confirmar productos y pago
+Frontend -> Ventas : registrarVenta(datos)
+Ventas -> Inventario : validarYReservar(detalles)
+Inventario -> DB : consultar lotes FEFO
+DB --> Inventario : lotes disponibles
+Inventario --> Ventas : reserva confirmada
+Ventas -> Pagos : procesar(total, metodo)
+alt pago aprobado
+  Pagos --> Ventas : confirmacion
+  Ventas -> DB : guardar venta y descontar stock
+  Ventas -> PDF : generar comprobante
+  PDF --> Ventas : archivo PDF
+  Ventas --> Frontend : venta, vuelto y comprobante
+else pago rechazado
+  Pagos --> Ventas : rechazo
+  Ventas -> Inventario : liberar reserva
+  Ventas --> Frontend : informar error
+end
+@enduml

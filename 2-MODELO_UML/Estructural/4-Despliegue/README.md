@@ -1,3 +1,5 @@
-# Diagrama de despliegue
+# Diagrama de Despliegue
 
-Nodos: navegador, servidor web Angular, servidor API Spring Boot, PostgreSQL y almacenamiento de comprobantes PDF.
+## Descripción
+
+Representa la infraestructura lógica donde se ejecuta MediZano, incluyendo navegador, frontend, backend y base de datos.

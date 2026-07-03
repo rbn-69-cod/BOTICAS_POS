@@ -1,0 +1,41 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam roundcorner 12
+skinparam actorStyle awesome
+skinparam rectangle {
+  BorderColor #2B579A
+  BackgroundColor #EAF2FF
+}
+skinparam database {
+  BorderColor #2F855A
+  BackgroundColor #E6FFFA
+}
+
+title MediZano - Nivel 1: Contexto del Sistema
+
+actor "Administrador" as Admin
+actor "Cajero" as Cajero
+actor "Encargado de almacén" as Almacen
+actor "Monitor de stock" as Stock
+actor "Soporte al cliente" as Soporte
+actor "Analista / Gerente" as Gerente
+
+rectangle "MediZano\nSistema POS para boticas y farmacias" as MediZano
+
+database "PostgreSQL\nBase de datos" as DB
+rectangle "Generador PDF\nComprobantes" as PDF
+rectangle "Swagger / OpenAPI\nDocumentación API" as Swagger
+
+Admin --> MediZano : Gestiona usuarios, roles y auditoría
+Cajero --> MediZano : Registra ventas y genera comprobantes
+Almacen --> MediZano : Administra medicamentos y lotes
+Stock --> MediZano : Revisa stock y vencimientos
+Soporte --> MediZano : Gestiona devoluciones
+Gerente --> MediZano : Consulta reportes
+
+MediZano --> DB : Guarda y consulta datos
+MediZano --> PDF : Genera comprobantes
+MediZano --> Swagger : Expone documentación técnica
+@enduml

@@ -1,3 +1,5 @@
-# Diagrama de componentes
+# Diagrama de Componentes
 
-Capas: frontend Angular, controladores REST, seguridad JWT, servicios de negocio, repositorios JPA, PostgreSQL y generador PDF.
+## Descripción
+
+Representa la organización del software en módulos y capas principales.

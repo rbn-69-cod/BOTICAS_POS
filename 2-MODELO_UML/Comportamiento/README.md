@@ -5,23 +5,22 @@ Mi objetivo es mostrar como se mueve el sistema durante la operacion diaria:
 quienes participan, que acciones realizan, como se comunican los componentes y
 que pasa cuando una venta avanza desde la busqueda hasta el comprobante.
 
-Para evitar archivos repetidos, deje un solo diagrama general por tipo. Cada
-diagrama resume el flujo completo del POS y puede leerse junto con los demas.
+Cada categoria contiene siete diagramas distintos: una vista general y seis
+vistas por modulo. Asi se mantiene el mismo nivel de detalle en todo el modelo.
 
-| Carpeta | Diagrama | Que explico |
+| Carpeta | Cantidad | Que explico |
 |---------|----------|-------------|
-| `1-Casos_Uso` | `caso-uso-general.puml` | Funciones principales y actores del sistema. |
-| `2-Secuencia` | `secuencia-principal.puml` | Orden temporal de mensajes durante una venta. |
-| `3-Actividades` | `actividad-general.puml` | Flujo operativo desde login hasta resultado. |
-| `4-Estado` | `estado-general.puml` | Estados por los que pasa una operacion. |
-| `5-Tiempos` | `tiempo-general.puml` | Cambios de estado a lo largo del tiempo. |
-| `6-Comunicacion` | `comunicacion-general.puml` | Interaccion entre actores, frontend, API y servicios. |
+| `1-Casos_Uso` | 7 | Funciones y actores por modulo. |
+| `2-Secuencia` | 7 | Orden temporal de mensajes. |
+| `3-Actividades` | 7 | Flujos y decisiones del negocio. |
+| `4-Estado` | 7 | Ciclos de vida de objetos y procesos. |
+| `5-Tiempos` | 7 | Cambios simultaneos a lo largo del tiempo. |
+| `6-Comunicacion` | 7 | Colaboracion entre actores, objetos y servicios. |
 
 ## Criterio usado
 
-Modele primero el flujo de venta porque es el centro del POS. A partir de ese
-flujo conecte inventario, pagos, seguridad, reportes y comprobantes. Asi evito
-diagramas sueltos y mantengo una lectura unica del proyecto.
+Los seis modulos usados de forma consistente son ventas, medicamentos,
+inventario, devoluciones, reportes y usuarios/seguridad.
 
 ## Como leer esta carpeta
 

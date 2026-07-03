@@ -1,0 +1,13 @@
+@startuml
+title MediZano - Estados de una venta
+[*] --> Borrador
+Borrador --> ValidandoStock : confirmar
+ValidandoStock --> PendientePago : stock reservado
+ValidandoStock --> Borrador : stock insuficiente
+PendientePago --> Pagada : pago aprobado
+PendientePago --> Borrador : pago rechazado
+Pagada --> ComprobanteEmitido : generar PDF
+Pagada --> Anulada : autorizar anulacion
+ComprobanteEmitido --> [*]
+Anulada --> [*]
+@enduml

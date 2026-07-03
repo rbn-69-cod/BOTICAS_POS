@@ -1,0 +1,21 @@
+@startuml
+title MediZano - Actividad general
+start
+:Iniciar sesion;
+if (Acceso permitido?) then (si)
+  :Seleccionar modulo;
+  :Ingresar o consultar datos;
+  :Validar reglas de negocio;
+  if (Datos validos?) then (si)
+    :Ejecutar operacion;
+    :Persistir cambios;
+    :Registrar auditoria;
+    :Mostrar resultado;
+  else (no)
+    :Mostrar errores de validacion;
+  endif
+else (no)
+  :Denegar acceso;
+endif
+stop
+@enduml

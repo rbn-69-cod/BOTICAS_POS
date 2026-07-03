@@ -1,0 +1,90 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+
+title MediZano - Diagrama de Clases Principal
+
+class User {
+  +id: Long
+  +username: String
+  +password: String
+  +role: UserRole
+  +active: Boolean
+}
+
+class Medicine {
+  +id: Long
+  +name: String
+  +description: String
+  +price: BigDecimal
+  +active: Boolean
+}
+
+class Batch {
+  +id: Long
+  +batchNumber: String
+  +quantity: Integer
+  +expirationDate: LocalDate
+  +purchasePrice: BigDecimal
+}
+
+class Bill {
+  +id: Long
+  +date: LocalDateTime
+  +subtotal: BigDecimal
+  +igv: BigDecimal
+  +total: BigDecimal
+  +status: String
+}
+
+class BillItem {
+  +id: Long
+  +quantity: Integer
+  +unitPrice: BigDecimal
+  +subtotal: BigDecimal
+}
+
+class Payment {
+  +id: Long
+  +method: String
+  +amountPaid: BigDecimal
+  +changeAmount: BigDecimal
+}
+
+class Return {
+  +id: Long
+  +date: LocalDateTime
+  +reason: String
+  +status: String
+}
+
+class ReturnItem {
+  +id: Long
+  +quantity: Integer
+  +amount: BigDecimal
+}
+
+class StockBarcode {
+  +id: Long
+  +barcode: String
+}
+
+class AuditLog {
+  +id: Long
+  +action: String
+  +description: String
+  +createdAt: LocalDateTime
+}
+
+User "1" --> "0..*" Bill : registra
+Medicine "1" --> "0..*" Batch : tiene
+Medicine "1" --> "0..*" BillItem : vendido en
+Batch "1" --> "0..*" BillItem : descuenta
+Bill "1" --> "1..*" BillItem : contiene
+Bill "1" --> "1" Payment : tiene
+Bill "1" --> "0..*" Return : puede originar
+Return "1" --> "1..*" ReturnItem : contiene
+Medicine "1" --> "0..*" ReturnItem : devuelto
+Batch "1" --> "0..*" StockBarcode : identifica
+User "1" --> "0..*" AuditLog : genera
+@enduml

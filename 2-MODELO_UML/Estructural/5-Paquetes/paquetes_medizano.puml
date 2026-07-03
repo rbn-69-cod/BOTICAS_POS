@@ -1,0 +1,33 @@
+@startuml
+!theme plain
+
+title MediZano - Diagrama de Paquetes
+
+package "src/main/java/com/medicalstore/pos" {
+  package config
+  package controller
+  package dto
+  package entity
+  package exception
+  package repository
+  package security
+  package service
+}
+
+package "frontend/src/app" {
+  package auth
+  package core
+  package modules
+  package shared
+}
+
+controller ..> service
+service ..> repository
+repository ..> entity
+controller ..> dto
+security ..> service
+config ..> security
+modules ..> core
+modules ..> auth
+modules ..> shared
+@enduml

@@ -4,13 +4,18 @@ En esta carpeta documento el flujo principal del POS desde mi perspectiva de
 analisis: primero identifico quien inicia la operacion, luego sigo el recorrido
 por frontend, API, servicios, base de datos y generacion del comprobante.
 
-Decidi dejar un solo diagrama porque los archivos anteriores repetian el mismo
-contenido con nombres distintos. En lugar de duplicar diagramas por modulo,
-consolide la secuencia completa en un unico archivo mas claro.
+La carpeta contiene una secuencia principal y seis secuencias especializadas.
+Cada archivo representa interacciones propias de su modulo.
 
 | Archivo | Flujo representado |
 |---------|--------------------|
-| `secuencia-principal.puml` | Login, busqueda de medicamento, validacion de stock, pago, registro de venta, descuento de lote y comprobante PDF. |
+| `secuencia_general.puml` | Solicitud, validacion, servicio, persistencia y auditoria. |
+| `secuencia_ventas.puml` | Registro de venta, reserva, pago y comprobante. |
+| `secuencia_medicamentos.puml` | Registro y busqueda de medicamentos. |
+| `secuencia_inventario.puml` | Entradas, movimientos y alertas. |
+| `secuencia_devoluciones.puml` | Validacion, autorizacion y nota de credito. |
+| `secuencia_reportes.puml` | Consulta, consolidacion y exportacion. |
+| `secuencia_usuarios_seguridad.puml` | Login, JWT y gestion de usuarios. |
 
 ## Que quiero mostrar
 
@@ -62,7 +67,7 @@ El archivo esta escrito en PlantUML. Se puede abrir desde WebStorm con soporte
 PlantUML o renderizar desde consola:
 
 ```bash
-plantuml "2-MODELO_UML/Comportamiento/2-Secuencia/secuencia-principal.puml"
+plantuml "2-MODELO_UML/Comportamiento/2-Secuencia/secuencia_general.puml"
 ```
 
 ## Relacion con el proyecto

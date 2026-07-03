@@ -1,0 +1,16 @@
+@startuml
+title MediZano - Actividad de medicamentos
+start
+:Ingresar datos del medicamento;
+:Validar campos y codigo de barras;
+if (Codigo disponible?) then (si)
+  :Asignar precio;
+  :Asociar lote inicial;
+  :Guardar medicamento;
+  :Confirmar registro;
+else (no)
+  :Informar medicamento existente;
+  :Consultar o actualizar ficha;
+endif
+stop
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+!theme plain
+title Patrón Observer - Alertas de inventario
+skinparam shadowing false
+skinparam class { BackgroundColor #F8FBFF; BorderColor #2463A9; ArrowColor #2463A9 }
+
+interface ObservadorInventario {
+  + actualizar(lote: Lote): void
+}
+class GestorInventario <<Sujeto>> {
+  - observadores: List<ObservadorInventario>
+  + suscribir(observador): void
+  + desuscribir(observador): void
+  + actualizarStock(lote, cantidad): void
+  - notificar(lote): void
+}
+class AlertaStockBajo <<Observador>> { + actualizar(lote: Lote): void }
+class AlertaVencimiento <<Observador>> { + actualizar(lote: Lote): void }
+class Lote {
+  + codigo: String
+  + stockActual: int
+  + stockMinimo: int
+  + fechaVencimiento: LocalDate
+}
+GestorInventario o--> "0..*" ObservadorInventario : notifica
+ObservadorInventario <|.. AlertaStockBajo
+ObservadorInventario <|.. AlertaVencimiento
+GestorInventario --> Lote : supervisa
+@enduml

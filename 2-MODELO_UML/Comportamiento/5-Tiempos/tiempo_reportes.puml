@@ -1,0 +1,24 @@
+@startuml
+title MediZano - Tiempo de reportes
+robust "Consulta" as Consulta
+robust "Base de datos" as DB
+robust "Indicadores" as Ind
+robust "Exportacion" as Exp
+@0
+Consulta is Configurando
+DB is Disponible
+Ind is Pendiente
+Exp is Pendiente
+@5
+Consulta is Ejecutando
+DB is Consultando
+@10
+Consulta is ConDatos
+DB is Disponible
+Ind is Calculando
+@15
+Ind is Visible
+Exp is Generando
+@20
+Exp is Disponible
+@enduml

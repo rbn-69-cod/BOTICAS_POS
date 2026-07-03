@@ -1,0 +1,20 @@
+@startuml
+title MediZano - Secuencia general
+actor Usuario
+participant Frontend
+participant "API REST" as API
+participant "Servicio de modulo" as Servicio
+participant "Servicio Auditoria" as Auditoria
+database PostgreSQL as DB
+Usuario -> Frontend : seleccionar operacion
+Frontend -> API : enviar solicitud con JWT
+API -> API : validar permiso
+API -> Servicio : ejecutar caso de uso
+Servicio -> DB : consultar o persistir datos
+DB --> Servicio : resultado
+Servicio -> Auditoria : registrar accion
+Auditoria -> DB : guardar evento
+Servicio --> API : respuesta
+API --> Frontend : datos o validacion
+Frontend --> Usuario : mostrar resultado
+@enduml

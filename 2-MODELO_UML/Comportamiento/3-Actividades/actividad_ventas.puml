@@ -1,0 +1,20 @@
+@startuml
+title MediZano - Actividad de ventas
+start
+:Buscar medicamento;
+:Agregar productos y cantidades;
+:Calcular subtotal, IGV y total;
+if (Stock disponible?) then (si)
+  :Seleccionar medio de pago;
+  if (Pago aprobado?) then (si)
+    :Registrar venta y descontar stock;
+    :Calcular vuelto;
+    :Generar comprobante;
+  else (no)
+    :Solicitar otro medio de pago;
+  endif
+else (no)
+  :Corregir cantidades;
+endif
+stop
+@enduml

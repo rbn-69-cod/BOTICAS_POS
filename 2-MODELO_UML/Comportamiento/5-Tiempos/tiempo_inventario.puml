@@ -1,0 +1,25 @@
+@startuml
+title MediZano - Tiempo de inventario
+robust "Movimiento" as Mov
+robust "Lote" as Lote
+robust "Stock" as Stock
+robust "Alerta" as Alerta
+@0
+Mov is Pendiente
+Lote is Disponible
+Stock is Normal
+Alerta is Inactiva
+@5
+Mov is RegistrandoSalida
+Stock is Actualizando
+@10
+Mov is Confirmado
+Stock is Bajo
+Alerta is Evaluando
+@15
+Alerta is Notificada
+@20
+Mov is RegistrandoEntrada
+Stock is Normal
+Alerta is Cerrada
+@enduml

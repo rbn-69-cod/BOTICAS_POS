@@ -1,0 +1,19 @@
+@startuml
+title MediZano - Actividad de usuarios y seguridad
+start
+:Ingresar credenciales;
+:Validar usuario y contraseña;
+if (Credenciales validas?) then (si)
+  if (Usuario activo?) then (si)
+    :Generar JWT y cargar permisos;
+    :Registrar inicio de sesion;
+    :Permitir acceso;
+  else (no)
+    :Informar cuenta desactivada;
+  endif
+else (no)
+  :Registrar intento fallido;
+  :Denegar acceso;
+endif
+stop
+@enduml

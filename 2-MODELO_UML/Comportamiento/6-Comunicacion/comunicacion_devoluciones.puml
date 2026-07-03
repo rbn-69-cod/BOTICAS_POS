@@ -1,0 +1,16 @@
+@startuml
+title MediZano - Comunicacion de devoluciones
+object "Atencion al cliente" as Soporte
+object Frontend
+object "Servicio Devoluciones" as Dev
+object Administrador
+object "Servicio Inventario" as Inventario
+object PostgreSQL as DB
+Soporte -> Frontend : 1. registra solicitud
+Frontend -> Dev : 2. envia comprobante
+Dev -> DB : 3. consulta venta
+Dev -> Administrador : 4. pide autorizacion
+Administrador --> Dev : 5. aprueba
+Dev -> Inventario : 6. reintegra producto
+Dev -> DB : 7. guarda nota de credito
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+title MediZano - Estados de una devolucion
+[*] --> Solicitada
+Solicitada --> EnValidacion : localizar venta
+EnValidacion --> PendienteAutorizacion : cumple condiciones
+EnValidacion --> Rechazada : datos o producto invalidos
+PendienteAutorizacion --> Aprobada : autorizar
+PendienteAutorizacion --> Rechazada : denegar
+Aprobada --> Reintegrada : actualizar inventario
+Reintegrada --> NotaCreditoEmitida : emitir documento
+NotaCreditoEmitida --> Finalizada
+Rechazada --> [*]
+Finalizada --> [*]
+@enduml

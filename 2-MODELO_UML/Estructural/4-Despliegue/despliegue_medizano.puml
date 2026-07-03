@@ -1,0 +1,25 @@
+@startuml
+!theme plain
+
+title MediZano - Diagrama de Despliegue
+
+node "Cliente" {
+  artifact "Navegador Web" as Browser
+}
+
+node "Servidor Frontend" {
+  artifact "Angular App\nVercel / Localhost 4200" as Frontend
+}
+
+node "Servidor Backend" {
+  artifact "Spring Boot API\nRender / Railway / Localhost 8080" as Backend
+}
+
+node "Servidor de Base de Datos" {
+  database "PostgreSQL\nmedical_store_pos" as DB
+}
+
+Browser --> Frontend : HTTP/HTTPS
+Frontend --> Backend : REST API JSON
+Backend --> DB : JDBC / JPA
+@enduml
