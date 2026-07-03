@@ -1,0 +1,15 @@
+@startuml
+title MediZano - Estados de un usuario
+[*] --> Pendiente
+Pendiente --> Activo : completar registro
+Activo --> Autenticado : iniciar sesion
+Autenticado --> Activo : cerrar sesion
+Activo --> Bloqueado : exceder intentos
+Bloqueado --> Activo : desbloquear
+Activo --> Inactivo : desactivar
+Bloqueado --> Inactivo : desactivar
+Inactivo --> Activo : reactivar
+Activo --> Eliminado : baja logica
+Inactivo --> Eliminado : baja logica
+Eliminado --> [*]
+@enduml

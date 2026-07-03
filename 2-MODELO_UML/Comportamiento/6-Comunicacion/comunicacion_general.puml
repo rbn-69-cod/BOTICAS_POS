@@ -1,0 +1,16 @@
+@startuml
+title MediZano - Comunicacion general
+object Usuario
+object Frontend
+object "API REST" as API
+object "Servicio de negocio" as Servicio
+object PostgreSQL as DB
+object Auditoria
+Usuario -> Frontend : 1. solicita operacion
+Frontend -> API : 2. envia datos y JWT
+API -> Servicio : 3. delega caso de uso
+Servicio -> DB : 4. consulta o actualiza
+DB --> Servicio : 5. retorna resultado
+Servicio -> Auditoria : 6. registra accion
+Servicio --> Frontend : 7. devuelve respuesta
+@enduml

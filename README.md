@@ -20,8 +20,8 @@ PDF y consultar reportes operativos.
 
 Mi objetivo es modelar y documentar un POS funcional para boticas, no solo una
 pantalla de ventas. Por eso el proyecto incluye vistas C4, diagramas UML,
-modulos de negocio, seguridad, persistencia y un ejemplo de patron Singleton
-aplicado a la configuracion del sistema.
+modulos de negocio, seguridad, persistencia y patrones de diseño aplicados al
+dominio del sistema.
 
 ## Alcance general
 
@@ -33,7 +33,7 @@ aplicado a la configuracion del sistema.
 | Seguridad | Login, JWT, roles y rutas protegidas. |
 | Reportes | Indicadores de ventas, ingresos, impuestos y actividad. |
 | Auditoria | Registro de acciones importantes del sistema. |
-| Modelado | Diagramas C4, UML estructural, UML de comportamiento y patron Singleton. |
+| Modelado | Diagramas C4, UML estructural, UML de comportamiento y patrones de diseño. |
 
 ## Caracteristicas principales
 
@@ -138,15 +138,14 @@ mantener una lectura clara del sistema.
 | [Paquetes](2-MODELO_UML/Estructural/5-Paquetes/) | Organizacion del codigo fuente. |
 | [Perfil](2-MODELO_UML/Estructural/6-Perfil/) | Estereotipos y enumeraciones del modelo. |
 
-### Patron de diseno
+### Patrones de diseño
 
-Incluyo un ejemplo de Singleton en
-[patrones de diseño/patron  singleton](patrones%20de%20diseño/patron%20%20singleton/).
-Lo uso para representar una configuracion unica del POS, como nombre del
-sistema, moneda e IGV.
+Los ejemplos están organizados por categoría en
+[4-PATRONES_DE_DISENO](4-PATRONES_DE_DISENO/): Observer, Strategy, Singleton y
+Adapter. Cada patrón resuelve una responsabilidad diferente del POS.
 
 ```bash
-javac -d target/patrones "patrones de diseño/patron  singleton/"*.java
+javac -encoding UTF-8 -d target/patrones 4-PATRONES_DE_DISENO/Creacionales/1-Patron_Singleton/*.java
 java -cp target/patrones patrones.singleton.Main
 ```
 

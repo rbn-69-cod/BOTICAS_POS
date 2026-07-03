@@ -1,0 +1,26 @@
+@startuml
+title MediZano - Tiempo de usuarios y seguridad
+robust "Usuario" as Usuario
+robust "Credenciales" as Cred
+robust "JWT" as JWT
+robust "Auditoria" as Audit
+@0
+Usuario is Anonimo
+Cred is Pendientes
+JWT is Inexistente
+Audit is Disponible
+@5
+Usuario is Autenticando
+Cred is Validando
+@10
+Usuario is Autenticado
+Cred is Aprobadas
+JWT is Vigente
+Audit is RegistrandoAcceso
+@20
+Usuario is CerrandoSesion
+JWT is Revocado
+Audit is RegistrandoSalida
+@25
+Usuario is Anonimo
+@enduml

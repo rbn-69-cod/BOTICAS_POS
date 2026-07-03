@@ -1,0 +1,15 @@
+@startuml
+title MediZano - Comunicacion de medicamentos
+object "Encargado" as Almacen
+object Frontend
+object "Servicio Medicamentos" as Servicio
+object "Validador" as Validador
+object PostgreSQL as DB
+Almacen -> Frontend : 1. ingresa ficha
+Frontend -> Servicio : 2. solicita registro
+Servicio -> Validador : 3. valida datos
+Validador -> DB : 4. verifica codigo
+Servicio -> DB : 5. guarda medicamento
+DB --> Servicio : 6. confirma registro
+Servicio --> Frontend : 7. devuelve ficha
+@enduml

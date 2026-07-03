@@ -1,19 +1,22 @@
 # Diagramas de actividades
 
-En este diagrama muestro como fluye el trabajo dentro del POS. Lo uso para
-explicar las decisiones del proceso: si el usuario entra a ventas, sigue el
-camino de busqueda, pago y comprobante; si entra a inventario, actualiza
-productos y lotes; si entra a administracion, revisa reportes o usuarios.
+Estos siete diagramas muestran el flujo general y las decisiones particulares
+de cada modulo del POS.
 
 | Archivo | Proceso |
 |---------|---------|
-| `actividad-general.puml` | Operacion integral del POS. |
+| `actividad_general.puml` | Operacion integral del POS. |
+| `actividad_ventas.puml` | Venta, pago y comprobante. |
+| `actividad_medicamentos.puml` | Registro y validacion de medicamentos. |
+| `actividad_inventario.puml` | Entradas, salidas y alertas. |
+| `actividad_devoluciones.puml` | Solicitud, autorizacion y reintegro. |
+| `actividad_reportes.puml` | Consulta y exportacion de reportes. |
+| `actividad_usuarios_seguridad.puml` | Autenticacion y control de acceso. |
 
 ## Que representa
 
 El diagrama representa una operacion completa desde el inicio de sesion hasta el
-resultado final. Incluye los caminos principales del negocio sin duplicar un
-archivo por cada modulo.
+resultado final. Los archivos especializados amplian cada camino sin repetirlo.
 
 ## Decisiones
 

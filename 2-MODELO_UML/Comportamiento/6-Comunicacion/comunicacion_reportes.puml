@@ -1,0 +1,15 @@
+@startuml
+title MediZano - Comunicacion de reportes
+object "Gerente" as Gerente
+object Frontend
+object "Servicio Reportes" as Reportes
+object PostgreSQL as DB
+object Exportador
+Gerente -> Frontend : 1. define filtros
+Frontend -> Reportes : 2. solicita reporte
+Reportes -> DB : 3. consulta ventas
+DB --> Reportes : 4. retorna datos
+Reportes --> Frontend : 5. muestra indicadores
+Frontend -> Reportes : 6. solicita exportacion
+Reportes -> Exportador : 7. genera archivo
+@enduml

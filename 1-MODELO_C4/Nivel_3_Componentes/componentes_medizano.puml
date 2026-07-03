@@ -1,0 +1,91 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam roundcorner 12
+
+title MediZano - Nivel 3: Componentes del Backend
+
+package "Backend API REST - Spring Boot" {
+  package "Controllers" {
+    [AuthController]
+    [MedicineController]
+    [BatchController]
+    [BillingController]
+    [ReportController]
+    [ReturnController]
+    [UserController]
+    [AuditLogController]
+  }
+
+  package "Services" {
+    [AuthService]
+    [MedicineService]
+    [BatchService]
+    [BillingService]
+    [ReportService]
+    [ReturnService]
+    [UserService]
+    [AuditLogService]
+    [PdfService]
+  }
+
+  package "Repositories" {
+    [MedicineRepository]
+    [BatchRepository]
+    [BillRepository]
+    [UserRepository]
+    [ReturnRepository]
+    [AuditLogRepository]
+  }
+
+  package "Security" {
+    [JwtTokenProvider]
+    [JwtAuthenticationFilter]
+    [SecurityConfig]
+    [CustomUserDetailsService]
+  }
+
+  package "Domain" {
+    [Medicine]
+    [Batch]
+    [Bill]
+    [BillItem]
+    [Payment]
+    [Return]
+    [User]
+    [AuditLog]
+  }
+}
+
+database "PostgreSQL" as DB
+
+[AuthController] --> [AuthService]
+[MedicineController] --> [MedicineService]
+[BatchController] --> [BatchService]
+[BillingController] --> [BillingService]
+[ReportController] --> [ReportService]
+[ReturnController] --> [ReturnService]
+[UserController] --> [UserService]
+[AuditLogController] --> [AuditLogService]
+
+[AuthService] --> [UserRepository]
+[MedicineService] --> [MedicineRepository]
+[BatchService] --> [BatchRepository]
+[BillingService] --> [BillRepository]
+[BillingService] --> [PdfService]
+[ReturnService] --> [ReturnRepository]
+[AuditLogService] --> [AuditLogRepository]
+
+[MedicineRepository] --> DB
+[BatchRepository] --> DB
+[BillRepository] --> DB
+[UserRepository] --> DB
+[ReturnRepository] --> DB
+[AuditLogRepository] --> DB
+
+[JwtAuthenticationFilter] --> [JwtTokenProvider]
+[SecurityConfig] --> [JwtAuthenticationFilter]
+[CustomUserDetailsService] --> [UserRepository]
+@enduml

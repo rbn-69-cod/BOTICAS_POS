@@ -1,0 +1,14 @@
+@startuml
+title MediZano - Estado general de una operacion
+[*] --> Creada
+Creada --> EnValidacion : enviar datos
+EnValidacion --> EnProceso : datos validos
+EnValidacion --> Observada : datos invalidos
+Observada --> EnValidacion : corregir
+EnProceso --> Registrada : persistir
+EnProceso --> Cancelada : cancelar
+Registrada --> Auditada : registrar evento
+Auditada --> Finalizada : confirmar resultado
+Cancelada --> [*]
+Finalizada --> [*]
+@enduml

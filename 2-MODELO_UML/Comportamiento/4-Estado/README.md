@@ -1,12 +1,17 @@
 # Diagramas de estado
 
-En este diagrama represento los estados generales por los que pasa una
-operacion del sistema. Lo planteo de forma general porque las versiones
-anteriores repetian la misma transicion para venta, lote, usuario y comprobante.
+Los siete diagramas representan el estado general y los ciclos de vida
+especificos de las entidades principales.
 
 | Archivo | Objeto o proceso |
 |---------|------------------|
-| `estado-general.puml` | Estados principales de la venta y operacion POS. |
+| `estado_general.puml` | Estados principales de una operacion POS. |
+| `estado_ventas.puml` | Venta. |
+| `estado_medicamentos.puml` | Medicamento. |
+| `estado_inventario.puml` | Lote de inventario. |
+| `estado_devoluciones.puml` | Devolucion. |
+| `estado_reportes.puml` | Reporte. |
+| `estado_usuarios_seguridad.puml` | Usuario y acceso. |
 
 ## Estados principales
 

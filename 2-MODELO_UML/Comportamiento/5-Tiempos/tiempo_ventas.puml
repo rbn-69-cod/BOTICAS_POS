@@ -1,0 +1,26 @@
+@startuml
+title MediZano - Tiempo de ventas
+robust "Venta" as Venta
+robust "Pago" as Pago
+robust "Stock" as Stock
+robust "Comprobante" as Comp
+@0
+Venta is Borrador
+Pago is Pendiente
+Stock is Disponible
+Comp is Pendiente
+@5
+Venta is Validando
+Stock is Reservado
+@10
+Venta is PendientePago
+Pago is Procesando
+@15
+Venta is Pagada
+Pago is Aprobado
+Stock is Descontado
+Comp is Generando
+@20
+Venta is Finalizada
+Comp is Emitido
+@enduml

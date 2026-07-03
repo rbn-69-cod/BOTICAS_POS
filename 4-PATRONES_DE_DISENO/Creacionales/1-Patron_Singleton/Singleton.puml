@@ -1,0 +1,21 @@
+@startuml
+!theme plain
+title Patrón Singleton - Configuración de MediZano
+skinparam shadowing false
+skinparam class { BackgroundColor #F8FBFF; BorderColor #2463A9; ArrowColor #2463A9 }
+
+class ConfiguracionPOS <<Singleton>> {
+  - {static} INSTANCIA: ConfiguracionPOS
+  - nombreSistema: String
+  - moneda: String
+  - tasaIgv: BigDecimal
+  - ConfiguracionPOS()
+  + {static} getInstancia(): ConfiguracionPOS
+  + calcularIgv(subtotal): BigDecimal
+  + calcularTotal(subtotal): BigDecimal
+}
+note right of ConfiguracionPOS
+  El constructor privado impide crear
+  instancias fuera de la clase.
+end note
+@enduml

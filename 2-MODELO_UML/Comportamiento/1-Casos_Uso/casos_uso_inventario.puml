@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+title Botica POS MediZano - Casos de uso de inventario
+
+actor "Encargado de almacen" as Almacen
+actor "Gerente / Analista" as Gerente
+
+rectangle "Modulo de inventario" {
+  usecase "Consultar existencias" as I1
+  usecase "Registrar entrada\nde stock" as I2
+  usecase "Registrar salida\nde stock" as I3
+  usecase "Controlar lotes" as I4
+  usecase "Consultar vencimientos" as I5
+  usecase "Generar alerta de\nstock bajo" as I6
+  usecase "Consultar movimientos" as I7
+}
+
+Almacen --> I1
+Almacen --> I2
+Almacen --> I3
+Almacen --> I4
+Almacen --> I5
+Almacen --> I7
+Gerente --> I6
+Gerente --> I7
+I1 ..> I6 : <<include>>
+I4 ..> I5 : <<include>>
+@enduml

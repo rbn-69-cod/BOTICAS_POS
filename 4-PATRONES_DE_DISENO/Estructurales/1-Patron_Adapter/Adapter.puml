@@ -1,0 +1,24 @@
+@startuml
+!theme plain
+title Patrón Adapter - Billeteras digitales
+skinparam shadowing false
+skinparam class { BackgroundColor #F8FBFF; BorderColor #2463A9; ArrowColor #2463A9 }
+
+interface PasarelaPago { + cobrar(monto: BigDecimal): ResultadoPago }
+class PagoYapeAdapter <<Adapter>> {
+  - apiYape: ApiYape
+  + cobrar(monto): ResultadoPago
+}
+class PagoPlinAdapter <<Adapter>> {
+  - apiPlin: ApiPlin
+  + cobrar(monto): ResultadoPago
+}
+class ApiYape <<Servicio externo>> { + generarCobro(soles: BigDecimal): String }
+class ApiPlin <<Servicio externo>> { + crearOperacion(centimos: long): boolean }
+class ServicioVenta <<Cliente>> { + registrarPago(pasarela, monto): void }
+ServicioVenta --> PasarelaPago : solicita cobro
+PasarelaPago <|.. PagoYapeAdapter
+PasarelaPago <|.. PagoPlinAdapter
+PagoYapeAdapter --> ApiYape : adapta
+PagoPlinAdapter --> ApiPlin : adapta
+@enduml

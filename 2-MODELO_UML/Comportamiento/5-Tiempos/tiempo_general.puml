@@ -1,0 +1,30 @@
+@startuml
+title MediZano - Tiempo general de una operacion
+robust "Usuario" as Usuario
+robust "Frontend" as Frontend
+robust "Servicio" as Servicio
+robust "Base de datos" as DB
+robust "Auditoria" as Audit
+@0
+Usuario is Autenticado
+Frontend is Disponible
+Servicio is Disponible
+DB is Disponible
+Audit is Pendiente
+@5
+Usuario is Solicitando
+Frontend is Validando
+Servicio is Procesando
+@10
+Servicio is Persistiendo
+DB is Actualizando
+@15
+Servicio is Confirmando
+DB is Disponible
+Audit is Registrando
+@20
+Usuario is Informado
+Frontend is Disponible
+Servicio is Disponible
+Audit is Completada
+@enduml

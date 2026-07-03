@@ -1,0 +1,18 @@
+@startuml
+title MediZano - Actividad de reportes
+start
+:Seleccionar tipo de reporte;
+:Definir periodo y filtros;
+:Consultar datos operativos;
+if (Existen resultados?) then (si)
+  :Calcular indicadores;
+  :Mostrar resumen y detalle;
+  if (Exportar?) then (si)
+    :Seleccionar PDF o CSV;
+    :Generar archivo;
+  endif
+else (no)
+  :Mostrar reporte sin datos;
+endif
+stop
+@enduml

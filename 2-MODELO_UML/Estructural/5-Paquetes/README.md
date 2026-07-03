@@ -1,3 +1,5 @@
-# Diagrama de paquetes
+# Diagrama de Paquetes
 
-Paquetes principales: config, controller, dto, entity, exception, repository, security y service.
+## Descripción
+
+Representa la organización del código fuente del backend y frontend de MediZano.

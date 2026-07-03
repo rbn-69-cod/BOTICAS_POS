@@ -1,0 +1,28 @@
+@startuml
+title MediZano - Tiempo de devoluciones
+robust "Solicitud" as Sol
+robust "Validacion" as Val
+robust "Autorizacion" as Aut
+robust "Inventario" as Inv
+robust "Nota de credito" as Nota
+@0
+Sol is Recibida
+Val is Pendiente
+Aut is Pendiente
+Inv is SinCambios
+Nota is Pendiente
+@5
+Sol is EnProceso
+Val is Revisando
+@10
+Val is Conforme
+Aut is Evaluando
+@15
+Aut is Aprobada
+Inv is Reintegrando
+Nota is Generando
+@20
+Sol is Finalizada
+Inv is Actualizado
+Nota is Emitida
+@enduml

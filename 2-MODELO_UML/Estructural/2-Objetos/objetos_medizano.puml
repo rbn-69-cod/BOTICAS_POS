@@ -1,0 +1,47 @@
+@startuml
+!theme plain
+
+title MediZano - Diagrama de Objetos: Venta de ejemplo
+
+object "usuario1: User" as Usuario {
+  username = "cajero"
+  role = "CASHIER"
+  active = true
+}
+
+object "med1: Medicine" as Medicamento {
+  name = "Paracetamol 500mg"
+  price = 2.50
+  active = true
+}
+
+object "lote1: Batch" as Lote {
+  batchNumber = "LT-2026-001"
+  quantity = 100
+  expirationDate = "2027-05-20"
+}
+
+object "venta1: Bill" as Venta {
+  subtotal = 5.00
+  igv = 0.90
+  total = 5.90
+}
+
+object "item1: BillItem" as Item {
+  quantity = 2
+  unitPrice = 2.50
+  subtotal = 5.00
+}
+
+object "pago1: Payment" as Pago {
+  method = "Efectivo"
+  amountPaid = 10.00
+  changeAmount = 4.10
+}
+
+Usuario -- Venta
+Venta -- Item
+Item -- Medicamento
+Item -- Lote
+Venta -- Pago
+@enduml

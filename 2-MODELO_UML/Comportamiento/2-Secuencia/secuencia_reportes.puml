@@ -1,0 +1,18 @@
+@startuml
+title MediZano - Secuencia de reportes
+actor "Gerente / Analista" as Gerente
+participant Frontend
+participant "Servicio Reportes" as Reportes
+database PostgreSQL as DB
+participant "Exportador" as Exportador
+Gerente -> Frontend : seleccionar reporte y periodo
+Frontend -> Reportes : consultar(tipo, filtros)
+Reportes -> DB : agregar ventas, pagos e impuestos
+DB --> Reportes : datos consolidados
+Reportes --> Frontend : indicadores y detalle
+Gerente -> Frontend : exportar reporte
+Frontend -> Reportes : exportar(formato)
+Reportes -> Exportador : generar archivo
+Exportador --> Reportes : PDF o CSV
+Reportes --> Frontend : archivo descargable
+@enduml

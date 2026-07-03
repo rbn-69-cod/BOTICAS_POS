@@ -1,0 +1,21 @@
+@startuml
+title MediZano - Secuencia de inventario
+actor "Encargado de almacen" as Almacen
+participant Frontend
+participant "Servicio Inventario" as Inventario
+participant "Servicio Alertas" as Alertas
+database PostgreSQL as DB
+Almacen -> Frontend : registrar entrada de lote
+Frontend -> Inventario : ingresarLote(datos)
+Inventario -> DB : validar medicamento y lote
+DB --> Inventario : resultado
+Inventario -> DB : guardar entrada y movimiento
+Inventario -> Alertas : evaluar stock y vencimiento
+Alertas -> DB : registrar alertas necesarias
+Inventario --> Frontend : existencias actualizadas
+Almacen -> Frontend : consultar movimientos
+Frontend -> Inventario : listarMovimientos(filtros)
+Inventario -> DB : consultar kardex
+DB --> Inventario : movimientos
+Inventario --> Frontend : mostrar historial
+@enduml

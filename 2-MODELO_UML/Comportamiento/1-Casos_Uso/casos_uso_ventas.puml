@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+title Botica POS MediZano - Casos de uso de ventas
+
+actor Cajero
+actor Cliente
+
+rectangle "Modulo de ventas" {
+  usecase "Buscar medicamento" as V1
+  usecase "Agregar producto\na la venta" as V2
+  usecase "Modificar cantidad" as V3
+  usecase "Calcular subtotal,\nIGV y total" as V4
+  usecase "Registrar pago" as V5
+  usecase "Calcular vuelto" as V6
+  usecase "Generar comprobante" as V7
+}
+
+Cajero --> V1
+Cajero --> V2
+Cajero --> V3
+Cajero --> V5
+Cliente --> V5
+Cliente --> V7
+V2 ..> V4 : <<include>>
+V3 ..> V4 : <<include>>
+V5 ..> V6 : <<include>>
+V5 ..> V7 : <<include>>
+@enduml

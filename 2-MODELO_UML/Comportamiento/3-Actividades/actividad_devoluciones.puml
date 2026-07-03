@@ -1,0 +1,23 @@
+@startuml
+title MediZano - Actividad de devoluciones
+start
+:Recibir solicitud y comprobante;
+:Buscar venta original;
+if (Venta encontrada?) then (si)
+  :Validar plazo y estado del producto;
+  if (Cumple condiciones?) then (si)
+    :Solicitar autorizacion;
+    if (Aprobada?) then (si)
+      :Reintegrar producto al inventario;
+      :Emitir nota de credito;
+    else (no)
+      :Registrar rechazo;
+    endif
+  else (no)
+    :Informar condiciones incumplidas;
+  endif
+else (no)
+  :Informar comprobante invalido;
+endif
+stop
+@enduml

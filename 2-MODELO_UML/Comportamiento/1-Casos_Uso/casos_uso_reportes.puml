@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+title Botica POS MediZano - Casos de uso de reportes
+
+actor "Gerente / Analista" as Gerente
+actor Administrador
+
+rectangle "Modulo de reportes" {
+  usecase "Consultar reporte\nde ventas" as R1
+  usecase "Consultar ingresos" as R2
+  usecase "Consultar impuestos" as R3
+  usecase "Consultar productos\nmas vendidos" as R4
+  usecase "Consultar historial\nde compras" as R5
+  usecase "Filtrar por periodo" as R6
+  usecase "Exportar reporte" as R7
+}
+
+Gerente --> R1
+Gerente --> R2
+Gerente --> R3
+Gerente --> R4
+Gerente --> R5
+Gerente --> R7
+Administrador --> R1
+R1 ..> R6 : <<include>>
+R2 ..> R6 : <<include>>
+R3 ..> R6 : <<include>>
+R7 ..> R6 : <<include>>
+@enduml

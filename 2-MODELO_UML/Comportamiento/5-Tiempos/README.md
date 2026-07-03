@@ -1,12 +1,17 @@
 # Diagramas de tiempo
 
-En este diagrama muestro como cambian los estados del cajero, frontend, API,
-stock y comprobante durante una venta. Me sirve para explicar el avance temporal
-del proceso, no solo el orden de llamadas.
+Los siete diagramas muestran cambios de estado simultaneos en el flujo general
+y en cada modulo del sistema.
 
 | Archivo | Evolucion temporal |
 |---------|--------------------|
-| `tiempo-general.puml` | Flujo temporal integral del POS. |
+| `tiempo_general.puml` | Flujo temporal integral del POS. |
+| `tiempo_ventas.puml` | Venta, pago, stock y comprobante. |
+| `tiempo_medicamentos.puml` | Registro y activacion de medicamento. |
+| `tiempo_inventario.puml` | Movimiento, stock y alertas. |
+| `tiempo_devoluciones.puml` | Validacion, autorizacion y reintegro. |
+| `tiempo_reportes.puml` | Consulta, indicadores y exportacion. |
+| `tiempo_usuarios_seguridad.puml` | Autenticacion, JWT y auditoria. |
 
 ## Lectura del tiempo
 

@@ -1,0 +1,23 @@
+@startuml
+title MediZano - Secuencia de usuarios y seguridad
+actor Usuario
+actor Administrador
+participant Frontend
+participant "Servicio Autenticacion" as Auth
+participant "Servicio Usuarios" as Usuarios
+database PostgreSQL as DB
+Usuario -> Frontend : ingresar credenciales
+Frontend -> Auth : iniciarSesion(usuario, clave)
+Auth -> DB : consultar usuario y hash
+DB --> Auth : credenciales y rol
+alt usuario activo y clave valida
+  Auth --> Frontend : JWT y permisos
+  Frontend --> Usuario : abrir sesion
+else acceso invalido
+  Auth --> Frontend : acceso denegado
+end
+Administrador -> Frontend : crear usuario y asignar rol
+Frontend -> Usuarios : registrar(datos, rol)
+Usuarios -> DB : guardar usuario y auditoria
+Usuarios --> Frontend : usuario creado
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam roundcorner 12
+
+title MediZano - Nivel 2: Contenedores
+
+actor "Usuario del sistema" as Usuario
+
+rectangle "Frontend Web\nAngular + TypeScript + Bootstrap" as Frontend #EAF2FF
+rectangle "Backend API REST\nJava + Spring Boot" as Backend #FFF4E6
+rectangle "Módulo de Seguridad\nSpring Security + JWT" as Seguridad #FDECEC
+database "Base de Datos\nPostgreSQL" as DB #E6FFFA
+rectangle "Generador de Comprobantes\niText PDF" as PDF #F3E8FF
+rectangle "Swagger / OpenAPI\nDocumentación API" as Swagger #F8F9FA
+
+Usuario --> Frontend : Usa módulos del sistema
+Frontend --> Backend : Consume API REST / JSON
+Backend --> Seguridad : Valida credenciales y roles
+Backend --> DB : Consulta y persiste datos
+Backend --> PDF : Genera comprobante PDF
+Backend --> Swagger : Expone endpoints documentados
+@enduml

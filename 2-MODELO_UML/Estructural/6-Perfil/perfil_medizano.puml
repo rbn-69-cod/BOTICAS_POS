@@ -1,0 +1,41 @@
+@startuml
+!theme plain
+
+title MediZano - Perfil UML del Dominio
+
+class "<<UsuarioSistema>>" as UsuarioSistema
+class "<<ProductoFarmaceutico>>" as ProductoFarmaceutico
+class "<<LoteMedicamento>>" as LoteMedicamento
+class "<<TransaccionVenta>>" as TransaccionVenta
+class "<<ComprobantePDF>>" as ComprobantePDF
+class "<<ControlStock>>" as ControlStock
+class "<<ReporteOperativo>>" as ReporteOperativo
+class "<<Auditoria>>" as Auditoria
+
+note right of UsuarioSistema
+Representa usuarios con roles:
+ADMIN, CASHIER, STOCK_KEEPER,
+STOCK_MONITOR, CUSTOMER_SUPPORT,
+ANALYST y MANAGER.
+end note
+
+note right of ProductoFarmaceutico
+Representa medicamentos o productos
+vendidos en la botica.
+end note
+
+note right of LoteMedicamento
+Controla cantidad, lote y fecha
+de vencimiento.
+end note
+
+note right of TransaccionVenta
+Agrupa venta, detalle, pago,
+IGV y total.
+end note
+
+note right of Auditoria
+Registra acciones importantes
+de los usuarios.
+end note
+@enduml

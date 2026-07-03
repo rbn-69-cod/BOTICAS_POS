@@ -1,0 +1,43 @@
+@startuml
+!theme plain
+skinparam componentStyle rectangle
+
+title MediZano - Diagrama de Componentes
+
+package "Frontend Angular" {
+  [Auth Module]
+  [Billing Module]
+  [Inventory Module]
+  [Medicines Module]
+  [Returns Module]
+  [Reports Module]
+  [User Management Module]
+}
+
+package "Backend Spring Boot" {
+  [Controllers]
+  [Services]
+  [Repositories]
+  [Security]
+  [DTOs]
+  [Entities]
+  [PDF Generator]
+}
+
+database "PostgreSQL" as DB
+
+[Auth Module] --> [Security]
+[Billing Module] --> [Controllers]
+[Inventory Module] --> [Controllers]
+[Medicines Module] --> [Controllers]
+[Returns Module] --> [Controllers]
+[Reports Module] --> [Controllers]
+[User Management Module] --> [Controllers]
+
+[Controllers] --> [Services]
+[Services] --> [Repositories]
+[Services] --> [PDF Generator]
+[Repositories] --> DB
+[Services] --> [Entities]
+[Controllers] --> [DTOs]
+@enduml

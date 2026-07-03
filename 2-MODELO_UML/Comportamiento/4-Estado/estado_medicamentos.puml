@@ -1,0 +1,14 @@
+@startuml
+title MediZano - Estados de un medicamento
+[*] --> Registrando
+Registrando --> Activo : datos validos
+Registrando --> Rechazado : codigo duplicado
+Activo --> Actualizando : editar ficha o precio
+Actualizando --> Activo : guardar cambios
+Activo --> SinStock : agotar lotes
+SinStock --> Activo : registrar entrada
+Activo --> Inactivo : desactivar
+SinStock --> Inactivo : desactivar
+Inactivo --> Activo : reactivar
+Rechazado --> [*]
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+title MediZano - Comunicacion de ventas
+object Cajero
+object Frontend
+object "Servicio Ventas" as Ventas
+object "Servicio Inventario" as Inventario
+object "Servicio Pagos" as Pagos
+object PostgreSQL as DB
+object "Generador PDF" as PDF
+Cajero -> Frontend : 1. confirma venta
+Frontend -> Ventas : 2. envia detalle y pago
+Ventas -> Inventario : 3. valida stock
+Inventario -> DB : 4. reserva lotes
+Ventas -> Pagos : 5. procesa cobro
+Ventas -> DB : 6. guarda venta
+Ventas -> PDF : 7. genera comprobante
+@enduml

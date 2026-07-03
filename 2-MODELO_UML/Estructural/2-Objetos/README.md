@@ -1,3 +1,5 @@
-# Diagrama de objetos
+# Diagrama de Objetos
 
-Ejemplo de una venta con cajero, medicamento, lote, detalle, pago y comprobante PDF.
+## Descripción
+
+Muestra un ejemplo concreto de instancias del sistema durante una venta registrada en MediZano.

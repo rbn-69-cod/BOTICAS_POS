@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+title Botica POS MediZano - Casos de uso de usuarios y seguridad
+
+actor Usuario
+actor Administrador
+
+rectangle "Modulo de usuarios y seguridad" {
+  usecase "Iniciar sesion" as U1
+  usecase "Cerrar sesion" as U2
+  usecase "Registrar usuario" as U3
+  usecase "Actualizar usuario" as U4
+  usecase "Asignar rol" as U5
+  usecase "Activar o desactivar\nusuario" as U6
+  usecase "Consultar auditoria" as U7
+}
+
+Usuario --> U1
+Usuario --> U2
+Administrador --> U3
+Administrador --> U4
+Administrador --> U5
+Administrador --> U6
+Administrador --> U7
+U3 ..> U5 : <<include>>
+U4 ..> U7 : <<include>>
+U6 ..> U7 : <<include>>
+@enduml

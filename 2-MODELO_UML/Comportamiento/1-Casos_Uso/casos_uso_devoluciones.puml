@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+title Botica POS MediZano - Casos de uso de devoluciones
+
+actor Cliente
+actor "Atencion al cliente" as Soporte
+actor Administrador
+
+rectangle "Modulo de devoluciones" {
+  usecase "Solicitar devolucion" as D1
+  usecase "Buscar venta original" as D2
+  usecase "Validar comprobante" as D3
+  usecase "Validar condiciones\ndel producto" as D4
+  usecase "Autorizar devolucion" as D5
+  usecase "Reintegrar producto\nal inventario" as D6
+  usecase "Emitir nota de credito" as D7
+}
+
+Cliente --> D1
+Soporte --> D2
+Soporte --> D3
+Soporte --> D4
+Administrador --> D5
+Soporte --> D6
+Soporte --> D7
+D1 ..> D2 : <<include>>
+D1 ..> D3 : <<include>>
+D1 ..> D4 : <<include>>
+D5 ..> D6 : <<include>>
+D5 ..> D7 : <<include>>
+@enduml

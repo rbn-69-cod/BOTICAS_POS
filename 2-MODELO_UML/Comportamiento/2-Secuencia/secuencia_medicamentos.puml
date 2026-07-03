@@ -1,0 +1,23 @@
+@startuml
+title MediZano - Secuencia de medicamentos
+actor "Encargado de almacen" as Almacen
+participant Frontend
+participant "Servicio Medicamentos" as Servicio
+database PostgreSQL as DB
+Almacen -> Frontend : registrar medicamento
+Frontend -> Servicio : crear(datos)
+Servicio -> DB : verificar codigo de barras
+DB --> Servicio : codigo disponible
+alt datos validos
+  Servicio -> DB : guardar medicamento y precio
+  DB --> Servicio : medicamento creado
+  Servicio --> Frontend : mostrar confirmacion
+else codigo duplicado
+  Servicio --> Frontend : mostrar validacion
+end
+Almacen -> Frontend : buscar por codigo
+Frontend -> Servicio : buscar(codigo)
+Servicio -> DB : consultar medicamento activo
+DB --> Servicio : ficha del medicamento
+Servicio --> Frontend : mostrar resultado
+@enduml

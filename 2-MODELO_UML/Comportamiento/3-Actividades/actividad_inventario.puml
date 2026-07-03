@@ -1,0 +1,21 @@
+@startuml
+title MediZano - Actividad de inventario
+start
+:Seleccionar tipo de movimiento;
+if (Entrada?) then (si)
+  :Registrar lote y cantidad recibida;
+  :Incrementar existencias;
+else (salida)
+  :Seleccionar lote por FEFO;
+  if (Cantidad suficiente?) then (si)
+    :Descontar existencias;
+  else (no)
+    :Rechazar salida;
+    stop
+  endif
+endif
+:Registrar movimiento;
+:Evaluar stock minimo y vencimiento;
+:Generar alertas necesarias;
+stop
+@enduml

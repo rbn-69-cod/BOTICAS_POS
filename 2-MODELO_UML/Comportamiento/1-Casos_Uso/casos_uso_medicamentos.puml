@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+title Botica POS MediZano - Casos de uso de medicamentos
+
+actor "Encargado de almacen" as Almacen
+actor Administrador
+
+rectangle "Modulo de medicamentos" {
+  usecase "Registrar medicamento" as M1
+  usecase "Consultar medicamento" as M2
+  usecase "Actualizar medicamento" as M3
+  usecase "Desactivar medicamento" as M4
+  usecase "Asignar precio" as M5
+  usecase "Asociar lote" as M6
+  usecase "Buscar por codigo\nde barras" as M7
+}
+
+Almacen --> M1
+Almacen --> M2
+Almacen --> M3
+Almacen --> M5
+Almacen --> M6
+Almacen --> M7
+Administrador --> M4
+M1 ..> M5 : <<include>>
+M1 ..> M6 : <<include>>
+@enduml
