@@ -1,0 +1,65 @@
+@startuml
+!theme aws-orange
+title CU-04 - Gestión de Reportes
+
+note as N1
+**Caso de uso:** Gestión de Reportes
+**Id:** CU-04
+
+**Breve descripción:**
+El sistema permite al gerente o administrador consultar reportes
+relacionados con las ventas, ingresos, impuestos, productos más
+vendidos e historial de compras. Asimismo, permite filtrar la
+información por períodos y exportar los reportes para su análisis.
+
+**Actores primarios:**
+- Gerente / Analista
+
+**Actores secundarios:**
+- Administrador
+- Base de Datos PostgreSQL
+
+**Precondiciones:**
+1. El usuario ha iniciado sesión.
+2. El usuario posee permisos para acceder al módulo de reportes.
+3. Existen ventas registradas en el sistema.
+4. La base de datos está disponible.
+
+**Flujo principal:**
+1. El gerente accede al módulo de reportes.
+2. El sistema muestra los tipos de reportes disponibles.
+3. El usuario selecciona el reporte que desea consultar.
+4. El usuario indica el período de búsqueda.
+5. El sistema valida el rango de fechas ingresado.
+6. El sistema consulta la información correspondiente.
+7. El sistema genera el reporte solicitado.
+8. El sistema muestra los resultados en pantalla.
+9. El usuario consulta ventas, ingresos, impuestos, productos más vendidos o historial de compras.
+10. El usuario selecciona la opción de exportar reporte.
+11. El sistema genera el archivo en el formato correspondiente (PDF o Excel).
+12. El sistema confirma la exportación del reporte.
+
+**Postcondiciones:**
+1. El reporte es generado correctamente.
+2. La información consultada permanece disponible para el usuario.
+3. El reporte puede ser exportado en formato PDF o Excel.
+4. El historial de consultas queda registrado en el sistema.
+
+**Flujos alternativos:**
+A1. No existen datos para el período seleccionado:
+El sistema informa que no se encontraron registros.
+
+A2. Rango de fechas inválido:
+El sistema solicita ingresar un período válido.
+
+A3. Error al generar el reporte:
+El sistema muestra un mensaje indicando que no fue posible procesar la solicitud.
+
+A4. Error durante la exportación:
+El sistema informa que no se pudo generar el archivo solicitado.
+
+A5. Acceso no autorizado:
+El sistema deniega el acceso al módulo por falta de permisos.
+
+end note
+@enduml
