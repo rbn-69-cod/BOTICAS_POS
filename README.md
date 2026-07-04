@@ -1,62 +1,31 @@
-﻿# BOTICAS POS - Documentación del Sistema
+﻿# BOTICAS POS
 
-Repositorio académico orientado a la documentación, análisis, diseño y modelado arquitectónico de un sistema POS para boticas y farmacias.
-
-Este repositorio no representa una aplicación completa en ejecución. Su objetivo principal es documentar la propuesta del sistema mediante diagramas, decisiones arquitectónicas, patrones de diseño y estructura de análisis.
+Sistema de punto de venta para boticas, desarrollado en Java y documentado con modelos C4, diagramas UML, decisiones arquitectónicas y patrones de diseño.
 
 ---
 
-## Descripción del proyecto
+## Descripción
 
-BOTICAS POS es una propuesta de sistema de punto de venta para una botica o farmacia. El sistema está pensado para apoyar procesos como ventas, gestión de medicamentos, control de inventario, lotes, vencimientos, usuarios, reportes y seguridad.
-
-Actualmente el repositorio se enfoca en el modelado y documentación del sistema, no en la implementación completa de una aplicación funcional.
-
----
-
-## Objetivo general
-
-Documentar y modelar un sistema POS para boticas que permita representar sus módulos principales, actores, procesos, componentes internos y decisiones técnicas.
+**BOTICAS POS** es un proyecto académico orientado a la gestión de una botica o farmacia.  
+El sistema permite representar procesos principales como ventas, productos, usuarios, inventario y documentación técnica del software.
 
 ---
 
-## Objetivos específicos
+## Objetivo
 
-- Representar la arquitectura del sistema mediante el modelo C4.
-- Documentar los procesos principales mediante diagramas UML.
-- Definir la estructura del sistema mediante diagramas estructurales.
-- Justificar las decisiones arquitectónicas tomadas.
-- Aplicar patrones de diseño relacionados con el sistema.
-- Presentar una visión clara del funcionamiento esperado de un POS para boticas.
+Desarrollar y documentar un sistema POS para boticas que permita:
 
----
-
-## Estado actual del repositorio
-
-El estado actual corresponde a una fase de documentación y diseño.
-
-Actualmente incluye:
-
-- Documentación del sistema.
-- Diagramas de arquitectura C4.
-- Diagramas UML estructurales.
-- Diagramas UML de comportamiento.
-- Decisiones arquitectónicas.
-- Ejemplos de patrones de diseño.
-- Estructura base de proyecto Java para fines académicos.
-
-Actualmente no incluye:
-
-- Backend Spring Boot completamente implementado.
-- Frontend Angular funcional.
-- Base de datos PostgreSQL configurada.
-- API REST en ejecución.
-- Autenticación JWT implementada.
-- Sistema POS listo para producción.
+- Gestionar productos.
+- Registrar ventas.
+- Controlar inventario.
+- Administrar usuarios.
+- Documentar la arquitectura del sistema.
+- Representar el comportamiento mediante diagramas UML.
+- Aplicar patrones de diseño.
 
 ---
 
-## Estructura del repositorio
+## Estructura del Proyecto
 
 ```text
 BOTICAS_POS/
@@ -70,8 +39,8 @@ BOTICAS_POS/
 │   ├── Comportamiento/
 │   └── Estructural/
 │
-├── 3-DESICION-ARQUITECTONICA/
-│   └── ADRs del proyecto
+├── 3-DECISION-ARQUITECTONICA/
+│   └── ADRs del proyecto/
 │
 ├── 4-PATRONES_DE_DISENO/
 │   ├── Creacionales/
@@ -83,14 +52,13 @@ BOTICAS_POS/
 │
 ├── pom.xml
 └── README.md
-
-
+```
 
 ---
 
 ## Diagramas de Casos de Uso
 
-En esta sección se muestran los diagramas de casos de uso principales del sistema BOTICAS POS.
+En esta sección se muestran los diagramas de casos de uso principales del sistema **BOTICAS POS**.
 
 ### Caso de uso 1
 
@@ -116,3 +84,25 @@ En esta sección se muestran los diagramas de casos de uso principales del siste
 
 ![Caso de uso 6](https://www.plantuml.com/plantuml/png/TP1FQm8n4CNl-HI3vohKFmf5nEf1Uf2M5lPGl8p9k4t99YMP2ANqktUsgR0MFUs-DxzvavbbOeoS6wSS7HWuGBJr6uEnaJJRu1LRTWIhm5OZF3s-m9QCVKKVe0zhJ2618SWfj9yZUSQa56eEKQhl5CD9E2j5KghDHLzBPcyRJ7QTnXvyAP0iqfYalCf9OuH6vcbiX0Wzm0JLRHUwhoFLGdr42PD9Eu_Wi0GMVDZ5PQGzs3PMesThq1Her8NMw7HsmgIyvy3eRdR-OLF19_ogqZ7kTZnJRHF7zXrOXm9CBaOUCxdJ8jCkiI5FRO0EZUooHyzKg9dwLghS4lhzHRj_LmtFrEXCJTJVsI_AcQg6C1Z8tnZkO3wtNhjiQB5GrUYAFod-z8e_--SloPlSk1y0)
 
+---
+
+## Tecnologías Utilizadas
+
+- Java
+- Maven
+- PlantUML
+- Git
+- GitHub
+- IntelliJ IDEA
+
+---
+
+## Estado del Proyecto
+
+Proyecto académico en desarrollo.
+
+---
+
+## Autor
+
+Proyecto académico **BOTICAS POS**.
